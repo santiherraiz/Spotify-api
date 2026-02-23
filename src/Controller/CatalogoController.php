@@ -113,10 +113,8 @@ class CatalogoController extends AbstractController
             $canciones = $this->getDoctrine()
                 ->getRepository(Cancion::class)
                 ->findBy(['album' => $album]);
-            
-            foreach ($canciones as $cancion) {
-                $allCanciones[] = $cancion;
-            }
+
+            $allCanciones[] = $canciones;
         }
 
         $data = $serializer->serialize($allCanciones, 'json', ['groups' => ['cancion:read_detail', 'album:read']]);
