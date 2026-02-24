@@ -15,7 +15,7 @@ class CancionGuardadaController extends AbstractController
     public function cancionesGuardadas(Request $request, SerializerInterface $serializer): Response
     {
         $id = $request->get('userId');
-
+    
         $usuario = $this->getDoctrine()
             ->getRepository(Usuario::class)
             ->find($id);
